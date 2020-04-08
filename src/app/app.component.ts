@@ -7,12 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class AppComponent implements OnInit{
-  //items: string[] = ["hi", "bye"];
   items: object[];
   todoCurrent: string;
-  constructor(){
-
-  }
+  
   ngOnInit(){
     this.items = [];
     this.todoCurrent = '';
@@ -24,9 +21,6 @@ export class AppComponent implements OnInit{
     this.items.push(item);
   }
 
-  getItems(){
-    return this.items;
-  }
   removeItem(item){
     const index: number = this.items.indexOf(item);
     if(index !== -1){
