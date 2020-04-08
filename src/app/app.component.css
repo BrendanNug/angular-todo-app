@@ -1,0 +1,31 @@
+h1{
+    text-align: center;
+}
+
+form{
+    text-align: center;
+}
+
+ul{
+    align-items: flex-start;
+    display: flex;   
+    list-style-type: decimal;
+}
+
+.container{
+    margin-right: auto;
+    margin-left: auto;
+    width: inherit;
+}
+.itemBox{
+    margin-right: auto;
+    margin-left: auto;
+    border: 0.5px solid black;
+    width: inherit;
+    padding: 3px;
+}
+
+li{
+    margin-top: 4px;
+    margin-bottom: 4px;
+}

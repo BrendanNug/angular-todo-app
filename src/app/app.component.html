@@ -7,20 +7,24 @@
 </head>
 <body>
   <h1>Todo app</h1>
-  <div class="container">
+  
     <form>
-       <input type="text" id="todo-item" #newitem [(ngModel)]="todoCurrent">
+       <input type="text" name="todo-item" #newitem [(ngModel)]="todoCurrent">
        <button (click)="addItem(newitem.value); newitem.value=''">add</button>
     </form>
     <div>
-      <ul class="list-group">
+      <ul>
+        <div class="container">
           <li *ngFor="let item of items" #ival>
+            <div class="itemBox">
             {{item}}
+            </div>
             <button (click)="removeItem(item)">Delete</button>
           </li>
+        </div>
       </ul>
     </div>
-  </div>
+
   
 </body>
 </html>
