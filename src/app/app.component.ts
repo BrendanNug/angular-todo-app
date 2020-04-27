@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TodoService } from '../app/services/todo.service'
 
 @Component({
   selector: 'app-root',
@@ -7,26 +8,36 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class AppComponent implements OnInit{
-  items: object[];
+  items: string[] = [];
   todoCurrent: string;
+
   
+
+  constructor(public todo_service: TodoService){}
   ngOnInit(){
-    this.items = [];
+    this.getItems();
     this.todoCurrent = '';
   }
 
-  title = 'todo-app';
 
   addItem(item){
-    this.items.push(item);
+
+    this.todo_service.addItem(item);
   }
 
   removeItem(item){
-    const index: number = this.items.indexOf(item);
-    if(index !== -1){
-      this.items.splice(index, 1);
-    }
+    this.todo_service.removeItem(item);
   }
+  
+
+  getItems() {
+    this.items = this.todo_service.getItems();
+  }
+  
+
+  
+
+
 
   
 }
