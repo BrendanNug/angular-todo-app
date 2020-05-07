@@ -13,12 +13,20 @@ export class TodoService{
     this.items.push(item);
   }
 
+  editItem(item, updatedItem){
+    const index: number = this.items.indexOf(item);
+    if(index !== -1){
+      this.items[index] = updatedItem;
+    }
+  }
+
   removeItem(item){
     const index: number = this.items.indexOf(item);
     if(index !== -1){
       this.items.splice(index, 1);
     }
   }
+
   getItems() {
     return (this.items);
   }

@@ -1,9 +1,11 @@
-h1{
+header{
     text-align: center;
+    margin-bottom: 50px;
 }
 
 form{
     text-align: center;
+    margin-bottom: 40px;
 }
 
 ul{
@@ -13,19 +15,17 @@ ul{
 }
 
 .container{
-    margin-right: auto;
-    margin-left: auto;
-    width: inherit;
+    max-width: 100;
 }
 .itemBox{
-    margin-right: auto;
-    margin-left: auto;
-    border: 0.5px solid black;
-    width: inherit;
-    padding: 3px;
+    text-align: center;
+    max-width: inherit;
+    padding: 10px;
 }
 
 li{
-    margin-top: 4px;
-    margin-bottom: 4px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    align-items: center;
 }
+

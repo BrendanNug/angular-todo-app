@@ -25,6 +25,10 @@ export class AppComponent implements OnInit{
     this.todo_service.addItem(item);
   }
 
+  editItem(item, updatedItem){
+    this.todo_service.editItem(item, updatedItem);
+  }
+
   removeItem(item){
     this.todo_service.removeItem(item);
   }
