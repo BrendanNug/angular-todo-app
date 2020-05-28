@@ -1,33 +1,37 @@
 import { Injectable } from '@angular/core';
-
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TodoService{
 
-  items: string[] = [];
+  public API = '//localhost:8080';
+  public TODO_API = this.API + '/todos';
 
+   constructor(private http: HttpClient) {
+   }
 
-  addItem(item: string){
-    this.items.push(item);
+  getAll(): Observable<any> {
+    return this.http.get('//localhost:8080/todo-items');
   }
 
-  editItem(item, updatedItem){
-    const index: number = this.items.indexOf(item);
-    if(index !== -1){
-      this.items[index] = updatedItem;
+  get(id: string) {
+    return this.http.get(this.TODO_API + '/' + id);
+  }
+
+  save(item: any): Observable<any> {
+    let result: Observable<any>;
+    if (item.href) {
+      result = this.http.put(item.href, item);
+    } else {
+      result = this.http.post(this.TODO_API, item);
     }
+    return result;
   }
 
-  removeItem(item){
-    const index: number = this.items.indexOf(item);
-    if(index !== -1){
-      this.items.splice(index, 1);
-    }
-  }
-
-  getItems() {
-    return (this.items);
+  remove(href: string) {
+    return this.http.delete(href);
   }
 }

@@ -7,43 +7,8 @@ import { TodoService } from '../app/services/todo.service'
    styleUrls: ['./app.component.css']
 })
 
-export class AppComponent implements OnInit{
-  items: string[] = [];
-  todoCurrent: string;
+export class AppComponent {
 
-  
-
-  constructor(public todo_service: TodoService){}
-  ngOnInit(){
-    this.getItems();
-    this.todoCurrent = '';
-  }
-
-
-  addItem(item){
-
-    this.todo_service.addItem(item);
-  }
-
-  editItem(item, updatedItem){
-    this.todo_service.editItem(item, updatedItem);
-  }
-
-  removeItem(item){
-    this.todo_service.removeItem(item);
-  }
-  
-
-  getItems() {
-    this.items = this.todo_service.getItems();
-  }
-  
-
-  
-
-
-
-  
 }
 
 
